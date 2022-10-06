@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    password: password
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  jackson:
+    serialization:
+     INDENT_OUTPUT: true
+  mvc:
+    servlet:
+      path: /turnos-api
+    
+app:
+  api:
+    name: Recursos Unpaz
+    version: v1.0.0
+  http:
+    auth-token-header: API-KEY
+    auth-token-header-value: 123hdj12-772b-4e4b-943d-41jhsk38fk
+
