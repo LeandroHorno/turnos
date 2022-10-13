@@ -15,8 +15,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import lombok.Data;
+
 @Entity
 @Table(name="MEET")
+@Data
 public class Meet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

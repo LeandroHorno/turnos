@@ -1,6 +1,7 @@
 package com.api.turnos.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,14 +31,17 @@ public class UsuarioServiceImp implements UsuarioService {
 	}
 
 	@Override
-	public Usuario deleteById(Long id) {
-		try {
-			usuarioRepository.deleteById(id);
-			 return usuarioRepository.findById(id).orElse(null);
-		} catch (Exception e) {
-			System.out.println("NO EXISTE EL ID: "+id);
-		} 
-		 return null;
+	public Usuario deleteById(Optional<Long> id) {
+			usuarioRepository.deleteById(id.get());
+			 return usuarioRepository.findById(id.get()).get();
+	}
+
+	@Override
+	public Usuario update(Usuario obje) {
+		Usuario user = usuarioRepository.findById(obje.getUsuarioId()).get();
+		user.setPassword(obje.getPassword());
+		user.setUsuario(obje.getUsuario());
+		return user;
 	}
 
 }
