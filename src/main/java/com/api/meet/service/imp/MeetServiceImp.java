@@ -1,4 +1,4 @@
-package com.api.turnos.service.imp;
+package com.api.meet.service.imp;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.api.turnos.model.Meet;
-import com.api.turnos.repository.MeetRepository;
-import com.api.turnos.service.MeetService;
+import com.api.meet.model.Meet;
+import com.api.meet.repository.MeetRepository;
+import com.api.meet.service.MeetService;
 @Service
 public class MeetServiceImp implements MeetService {
 
@@ -21,25 +21,19 @@ public class MeetServiceImp implements MeetService {
 	}
 
 	@Override
-	public Meet getById(Long id) {
-		return meetRepository.findById(id).orElse(null);
+	public Optional<Meet> getById(Long id) {
+		return meetRepository.findById(id);
 	}
 
 	@Override
 	public Meet save(Meet obje) {
+		obje.setUsuarioCreadorId(null);
 		return meetRepository.save(obje);
 	}
 
 	@Override
-	public Meet deleteById(Optional<Long> id) {
-		try {
-			meetRepository.deleteById(id.get());
-			 return meetRepository.findById(id.get()).get();
-		} catch (Exception e) {
-			System.out.println("NO EXISTE EL ID: "+id);
-		} 
-		 return null;
-		
+	public void deleteById(Optional<Long> id) {
+		meetRepository.deleteById(id.get());
 	}
 
 	@Override

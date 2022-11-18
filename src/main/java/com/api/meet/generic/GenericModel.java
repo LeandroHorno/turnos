@@ -1,4 +1,4 @@
-package com.api.turnos.generic;
+package com.api.meet.generic;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,11 +6,9 @@ import java.util.Optional;
 
 
 public interface GenericModel <T>{
-
-	
 	 List<T> getAll();
-	 T getById(Long id);
+	 Optional<T> getById(Long id);
 	 T save(T obje);
-	 T deleteById(Optional<Long> id);
+	 void deleteById(Optional<Long> id);
 	 T update(T obje);
 }

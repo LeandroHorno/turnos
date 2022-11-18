@@ -1,4 +1,4 @@
-package com.api.turnos.config;
+package com.api.meet.config;
 
 import javax.servlet.http.HttpServletRequest;
 

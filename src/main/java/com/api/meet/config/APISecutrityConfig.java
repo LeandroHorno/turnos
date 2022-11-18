@@ -1,4 +1,4 @@
-package com.api.turnos.config;
+package com.api.meet.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -45,7 +45,7 @@ public class APISecutrityConfig {
         httpSecurity.csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         .and()
-        .addFilter(filter).authorizeRequests().antMatchers("/turnos-api/**").authenticated();
+        .addFilter(filter).authorizeRequests().antMatchers("/meet-api/**").permitAll();
         return httpSecurity.build();
     }
 

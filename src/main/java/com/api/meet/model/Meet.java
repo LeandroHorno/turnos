@@ -1,25 +1,29 @@
-package com.api.turnos.model;
+package com.api.meet.model;
 
-import java.security.Identity;
 import java.util.List;
-
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
 @Table(name="MEET")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Meet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,14 +36,13 @@ public class Meet {
 	@Column(name="FECHA")
 	private String fecha;
 	
-	@OneToOne
-	private Usuario creador;
+
+	@ManyToOne
+	@JoinColumn(name="USUARIO_CREADOR_ID")
+	private Usuario usuarioCreadorId;
 	
-	@JsonManagedReference
-	@OneToMany
-	@Column(name="PARTICIPANTES")
+	@ManyToMany
+	@JoinTable(name="PARTICIPANTES", joinColumns = @JoinColumn(name="MEET_ID", referencedColumnName = "meet_id"),
+	inverseJoinColumns = @JoinColumn(name="USUARIO_ID", referencedColumnName = "usuario_id"))
 	private List<Usuario> participantes;
-	
-	
-	
 }

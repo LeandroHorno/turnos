@@ -1,7 +1,7 @@
-package com.api.turnos.service;
+package com.api.meet.service;
 
-import com.api.turnos.generic.GenericModel;
-import com.api.turnos.model.Usuario;
+import com.api.meet.generic.GenericModel;
+import com.api.meet.model.Usuario;
 
 public interface UsuarioService extends GenericModel<Usuario>{
 

@@ -1,7 +1,7 @@
-package com.api.turnos.service;
+package com.api.meet.service;
 
-import com.api.turnos.generic.GenericModel;
-import com.api.turnos.model.Meet;
+import com.api.meet.generic.GenericModel;
+import com.api.meet.model.Meet;
 
 public interface MeetService extends GenericModel <Meet>{
 

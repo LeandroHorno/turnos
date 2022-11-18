@@ -1,17 +1,20 @@
 spring:
   datasource:
-    driverClassName: org.h2.Driver
-    password: password
-    url: jdbc:h2:mem:testdb
-    username: sa
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: 1234
+    url: jdbc:mysql://localhost:3306/meet
+    username: root
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+      
   jackson:
     serialization:
      INDENT_OUTPUT: true
   mvc:
     servlet:
-      path: /turnos-api
+      path: /meet-api
     
 app:
   api:

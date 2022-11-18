@@ -1,4 +1,4 @@
-package com.api.turnos;
+package com.api.meet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

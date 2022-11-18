@@ -1,8 +1,8 @@
-package com.api.turnos.repository;
+package com.api.meet.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.api.turnos.model.Meet;
+import com.api.meet.model.Meet;
 
 public interface MeetRepository extends CrudRepository<Meet, Long>{
 
