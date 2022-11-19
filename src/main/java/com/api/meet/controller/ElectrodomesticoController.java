@@ -42,7 +42,7 @@ public class ElectrodomesticoController {
 		response.clear();
 		response.put("data", electrodomesticoService.getAll());
 		return new ResponseEntity<>(response, HttpStatus.OK);
-	}	//data es la clave-valor que contiene la respuesta al getAll()
+	}
 	
 	@GetMapping(value = "/leer")
 	public List<Electrodomestico> getUser() {
