@@ -1,6 +1,7 @@
 package com.api.meet.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -32,21 +33,26 @@ public class ElectrodomesticoController {
 	@PostMapping(value = "/create")
 	public ResponseEntity<?> createUser(@RequestBody Electrodomestico electrodomestico) {
 		response.clear();
-		response.put("Create", electrodomesticoService.save(electrodomestico));
+		response.put("data", electrodomesticoService.save(electrodomestico));
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/read")
 	public ResponseEntity<?> getUsers() {
 		response.clear();
-		response.put("Electrodomestico", electrodomesticoService.getAll());
+		response.put("data", electrodomesticoService.getAll());
 		return new ResponseEntity<>(response, HttpStatus.OK);
+	}	//data es la clave-valor que contiene la respuesta al getAll()
+	
+	@GetMapping(value = "/leer")
+	public List<Electrodomestico> getUser() {
+		return electrodomesticoService.getAll();
 	}
 
 	@PutMapping(value = "/update")
 	public ResponseEntity<?> updateUser(@RequestBody Electrodomestico electrodomestico) {
 		response.clear();
-		response.put("Update", electrodomesticoService.update(electrodomestico));
+		response.put("data", electrodomesticoService.update(electrodomestico));
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
